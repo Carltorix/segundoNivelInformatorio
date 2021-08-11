@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="miSelect">
+        <option value="0">Probando</option>
+    </select>
+
+    <script text="javascript">
+    //tomas el select
+    const miSelect=document.getElementById("miSelect");
+    //creas el objeto option
+    miSelect.addEventListener("DOMContentLoaded",(event)=>{
+        var miOption=document.createElement("option");
+        //cargar el primer valor
+        miOption.setAttribute("value",1.05);
+        miOption.appendchiled("0 a 100");
+        miSelect.appendChild(miOption);
+
+        var puntaje=1.20;
+        const incr=0.20;
+        extremoInf=100;
+        extremoSup=200;
+        for ( var i=3; i<7; i++){
+            miOption.setAttribute("value",puntaje);
+            miOption.appendChild(str(extremoInf+ "a" +extremoSup));
+            miSelect.appendChild(miOption);
+            puntaje=puntaje+incr;
+            extremoInf= extremoInf +100;
+            extremoSup= extremoSup +100;     
+        }
+    })
+</script>   
+
+</body>
+</html>

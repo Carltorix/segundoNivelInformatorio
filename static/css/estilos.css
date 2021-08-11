@@ -1,0 +1,188 @@
+.contenedor-form {
+    background: rgba(0,0,0,.7);
+    max-width: 1140px;
+    width: 100%;
+    margin: 48px auto;
+    border-radius: 5px;
+    color: #fff;
+    position: relative;
+    /*padding: 40px;*/
+}
+
+.contenedor-form .toggle {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 100px;
+    height: 30px;
+    font-size: 12px;
+    line-height: 25px;
+    text-align: center;
+    border-top: 2px solid #E2681F;
+    border-bottom: 2px solid #E2681F;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.contenedor-form .toggle:hover {
+    border-top: 2px solid #0075d9;
+    border-bottom: 2px solid #0075d9;
+}
+
+.contenedor-form .toggle span {
+    letter-spacing: 1px;
+}
+
+.contenedor-form h2 {
+    margin: 0 0 28px 0;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+}
+.contenedor-form input {
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    margin: 0 10px 20px 0;
+    background: rgba(0,0,0,.5);
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    border-bottom: 4px solid #E2681F;
+    box-sizing: border-box;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight:normal;
+    transition: all .5s ease;
+}
+
+.contenedor-form input {
+    border-bottom: 4px solid #0075d9;
+}
+
+.contenedor-form input[type="submit"] {
+    background: #E2681F;
+    color: #FFF;
+    width: 100%;
+    border: none;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: normal;
+    font-family: Roboto;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.contenedor-form input[type="submit"]:hover {
+    background: rgba(0, 117, 217, 0.7);
+}
+
+.contenedor-form .reset-password {
+    background: rgba(0, 117, 217, .7);
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.contenedor-form .reset-password a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+.contenedor-form textarea {
+    resize: none;
+    width: 100%;
+    height: 20%;
+     padding: 15px 0;
+}
+
+#descripcion_oferta {
+    font-size: 1.2rem;
+}
+
+#detalle{
+    background: rgba(0,0,0,0.8);
+    position: fixed;
+    top:300px;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+}
+@media (max-width: 800px){
+    #detalle{
+    position: relative;
+    top:auto;
+    bottom: auto;
+    right: auto;
+    }
+}
+
+#label_titulo{
+    display: block;
+    text-align: center;
+}
+li{
+    display:block;
+}
+
+input[type="radio"]{
+    
+    display:block;
+    position: absolute;
+    cursor: pointer;
+}
+
+
+ul#id_titulo li label{
+    display:block;
+    padding: 5px 5px;
+    cursor: pointer;
+}
+
+#exp{
+    display: block;
+}
+
+#foto-clear_id{
+    display:none;
+}
+#foto-clear_id + label{
+    display:none;
+}
+#imagen-clear_id{
+    display:none;
+}
+#imagen-clear_id + label{
+    display:none;
+}
+
+#botones_perfil{
+    display:block;
+    position: absolute;
+    margin: 23rem 9rem;
+}
+
+@media (max-width: 768px){
+#botones_perfil{
+    display:block;
+    position: relative;
+    margin:0 0 0 0;
+    }
+}
+@media (max-width: 950px){
+#fecha_cad{
+    display:none;
+    }
+@media (max-width: 768px){
+#fecha_cad{
+    display: block;
+    }
+
+a{
+     text-decoration:none;
+}
+

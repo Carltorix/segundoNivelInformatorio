@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block titulo%}
+Cargar Cuenta
+{% endblock %}
+{%block contenido%}
+<div class="contenedor-form">
+    <br>
+    <div class="formulario">
+            <h2 class="text-center">Cargar Titulo</h2>
+      <form method="POST" enctype="multipart/form-data">
+                 {% csrf_token %} 
+      <label for="id_username">Oficio o Profesión</label>
+      {%ifequal request.user.categoria.id 5 %}
+        {{ form.titulo }}
+        <div>
+          <p>
+            {{ form.titulo.errors }}
+          </p>
+        </div>
+        {% if caso != "especial" %}
+        {{ form.titulo_nuevo }}
+        <div>
+          <p>
+            {{ form.titulo_nuevo.errors }}
+          </p>
+        </div>
+        {% endif %}
+      {% else %}
+
+        {{ form.titulo }}
+        <div>
+          <p>
+            {{ form.titulo.errors }}
+          </p>
+        </div>
+       {% endifequal %}     
+      <label for="id_email">Matricula (opcional)</label>
+      {{ form.matricula }}
+      <div>
+        <p>
+          {{ form.matricula.errors }}
+        </p>
+      </div>                       
+            <input type="submit" value="Cargar Titulo">
+      </form>
+      <h2>{{error}}</h2>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}
+    Perfil de {{ perfil.username }}
+{% endblock %}
+{% block contenido%}
+<div class="row justify-content-center">
+    <div id="contenedor_perfil" class="container m-2">
+        <div class="container m-2">
+            <div class="row m-2">
+                <div class="col-md-8">
+                    {% if request.user.foto %}
+                        <img src=  
+                    "{{perfil.foto.url}}" width="60" height="60" class="float-left rounded-circle mr-2" alt="foto de perfil">
+                    {%else%}
+                        <img src="{% static 'img/pordefecto.jpg' %}" width="60" height="60" class="float-left rounded-circle" alt="logo">
+                    {% endif %}
+                    <h2 class="title">{{perfil.tipo_usuario|capfirst}}: {{perfil.username}}</h2>
+                </div> 
+            </div>
+
+        
+            <div class="row">
+                <div class="">
+                    <div class="card-body">
+                        <h4 class="text-left">Datos Personales:</h4>
+                        <h5 class="text-left">Nombre: {{perfil.first_name}}</h5>
+                        <br>
+                        <h5 class="text-left">Apellido: {{perfil.last_name}}</h5>
+                        <br>
+                        <h5 class="text-left">Telefono: {{perfil.telefono}}</h5>
+                        <br>
+                        <h5 class="text-left">Localidad : {{perfil.localidad}}</h5>      
+                    </div>
+                </div>
+
+            {% ifequal request.user perfil %}
+                <div class="contenedor-form">
+                    <br>
+                     <div class="formulario">
+                        <form method="POST" action="{% url 'dar_baja_definitiva' perfil.id %}">
+                            {% csrf_token %}
+                            <input type="submit" value="Borrar Perfil">Desea Abandonar la Comunidad
+                        </form>
+                    </div>
+                 </div>
+
+            {% endifequal %}
+        </div>
+        <br>
+    </div>
+{% endblock %}

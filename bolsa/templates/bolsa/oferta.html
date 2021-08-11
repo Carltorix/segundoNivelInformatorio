@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block headtitle %}
+    Oferta : {{oferta.titulo}}
+{% endblock %}
+
+{%block contenido%}
+<div class="row justify-content-center">
+        <div class="col-xs-12 col-md-4 col-lg-6 text-center">
+          <div id="contenedor_oferta" class="card mb-4 lg-10 shadow-sm">
+            <span><h2>{{oferta.titulo}}</h2></span>
+            <p class="text-left">Creada el : {{oferta.fecha_creado}}</p>
+            <span><h6 class="text-left">Creador: {{ oferta.oferente }}</h6></span>
+             {% if oferta.imagen %}
+             <img class="rounded img-fluid" width="350" height="250" src=  
+            "{{oferta.imagen.url}}" alt="imagen de oferta">
+            {% elif request.user.foto %}
+            <img class="rounded img-fluid" width="250" height="150" src=  
+            "{{oferta.oferente.foto.url}}" alt="imagen usuario">
+            {% else %}
+             <img class="rounded img-fluid" width="250" height="150" src=  
+            "{% static 'img/pordefecto.jpg' %}" alt="imagen por defecto">
+            {% endif %} 
+
+
+            
+            <div class="card-body">
+              <h4>Oferta</h4>
+              <p id="descripcion_oferta" class="text-left card-text text-white">{{oferta.descripcion}}</p>
+              <div class="d-flex justify-content-between">
+                <small class="text-white">
+                La oferta termina: 
+                  {% ifequal oferta.fecha_caducacion none %}
+                    No tiene fecha limite
+                  {% else %}
+                    {{oferta.fecha_caducacion}} 
+                  {% endifequal %}
+                </small>
+                <a class ="text-white" href="{% url 'ver_perfil' oferta.oferente.id %}">
+                
+                </a>
+                <br>
+                <a class ="text-white" href="{% url 'show_categoria' oferta.categoria.id %}">
+                <span><h6>Categoria: {{ oferta.categoria }}</h6></span>
+                </a>
+              </div>
+              <div class="row d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <a href="{% url 'ver_perfil' oferta.oferente.id %}" class="btn btn-sm btn-outline-secondary text-white text-white">Perfil</a>
+                    {% if oferta.oferente == request.user %}
+                    <a href="{% url 'editar_oferta' oferta.id %}" class="btn btn-sm btn-outline-secondary text-white text-white">Editar Oferta</a>
+                    <a href="{% url 'borrar_oferta' oferta.id %}" class="btn btn-sm btn-outline-secondary text-white text-white">Borrar Oferta</a>
+                    {% endif %}
+                </div>
+              </div>
+            
+          </div>
+        </div> 
+</div>           
+{% endblock %}
